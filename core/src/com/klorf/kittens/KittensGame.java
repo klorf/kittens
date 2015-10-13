@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.klorf.kittens.network.Common;
+import com.klorf.kittens.network.KittenClient;
 import com.klorf.kittens.network.NetMessageHandler;
 import com.klorf.kittens.network.KittenServer;
 import com.klorf.kittens.network.message.PlayerJoined;
@@ -36,10 +37,9 @@ public class KittensGame extends ApplicationAdapter {
 			switch (networkMode) {
 			default:
 			case NETWORK_MODE_CLIENT :
-				Client c = new Client();
+				KittenClient c = new KittenClient();
 				c.start();
 				c.connect(5000, "localhost", networkPort);
-				Common.Register(c.getKryo());
 				c.sendTCP(new PlayerJoined());
 				break;
 			case NETWORK_MODE_SERVER :

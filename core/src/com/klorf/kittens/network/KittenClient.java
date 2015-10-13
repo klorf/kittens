@@ -1,14 +1,14 @@
 package com.klorf.kittens.network;
 
+import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
-import com.esotericsoftware.kryonet.Server;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class KittenServer extends Server {
+public class KittenClient extends Client {
 
     private HashMap<Class, List<NetMessageHandler>> handlers = new HashMap<>();
 
